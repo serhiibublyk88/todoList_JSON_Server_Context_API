@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useCallback, useEffect } from "react";
 import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 import TodoForm from "./components/TodoForm";
@@ -9,11 +10,19 @@ import {
   useDeleteTodo,
   useUpdateTodo,
 } from "./hooks";
+=======
+// npx json-server db.json
+import { useState, useContext } from "react";
+import { TodoContext } from "./context/TodoContext";
+import TodoForm from "./components/TodoForm";
+import TodoItem from "./components/TodoItem";
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
 import styles from "./App.module.css";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSorted, setIsSorted] = useState(false);
+<<<<<<< HEAD
   const [loadingMessage, setLoadingMessage] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -56,6 +65,25 @@ const App = () => {
   const toggleSort = useCallback(() => {
     setIsSorted((prev) => !prev);
   }, []);
+=======
+
+  const {
+    todos,
+    addTodo,
+    updateTodo,
+    deleteTodo,
+    loadingMessage,
+    isProcessing,
+  } = useContext(TodoContext);
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const toggleSort = () => {
+    setIsSorted(!isSorted);
+  };
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
 
   const filteredTodos = todos.filter((todo) =>
     todo.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -65,6 +93,7 @@ const App = () => {
     filteredTodos.sort((a, b) => a.title.localeCompare(b.title));
   }
 
+<<<<<<< HEAD
   const navigate = useNavigate();
 
   const TaskPage = ({ todos, updateTodo, deleteTodo }) => {
@@ -121,6 +150,8 @@ const App = () => {
     );
   };
 
+=======
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
   return (
     <div className={styles.app}>
       {isProcessing && (
@@ -128,6 +159,7 @@ const App = () => {
           <h2 className={styles.loadingMessage}>{loadingMessage}</h2>
         </div>
       )}
+<<<<<<< HEAD
       <Routes>
         <Route
           path="/"
@@ -168,6 +200,29 @@ const App = () => {
         <Route path="/404" element={<div>404 - Not Found</div>} />
         <Route path="*" element={<div>404 - Not Found</div>} />
       </Routes>
+=======
+      <h1>Todo List</h1>
+      <TodoForm
+        addTodo={addTodo}
+        handleSearch={handleSearch}
+        toggleSort={toggleSort}
+        isSorted={isSorted}
+        isProcessing={isProcessing}
+      />
+      <ul className={styles.todoList}>
+        {filteredTodos.map(({ id, title, completed }) => (
+          <TodoItem
+            key={id}
+            id={id}
+            title={title}
+            completed={completed}
+            updateTodo={updateTodo}
+            deleteTodo={deleteTodo}
+            isProcessing={isProcessing}
+          />
+        ))}
+      </ul>
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
     </div>
   );
 };
