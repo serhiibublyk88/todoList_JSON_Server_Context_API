@@ -1,69 +1,21 @@
 // npx json-server db.json
-import { useState, useContext } from "react";
-import { TodoContext } from "./context/TodoContext";
-import TodoForm from "./components/TodoForm";
-import TodoItem from "./components/TodoItem";
-import styles from "./App.module.css";
 
-const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isSorted, setIsSorted] = useState(false);
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import TaskPage from "./pages/TaskPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
-  const {
-    todos,
-    addTodo,
-    updateTodo,
-    deleteTodo,
-    loadingMessage,
-    isProcessing,
-  } = useContext(TodoContext);
-
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
-
-  const toggleSort = () => {
-    setIsSorted(!isSorted);
-  };
-
-  const filteredTodos = todos.filter((todo) =>
-    todo.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  if (isSorted) {
-    filteredTodos.sort((a, b) => a.title.localeCompare(b.title));
-  }
-
-  return (
-    <div className={styles.app}>
-      {isProcessing && (
-        <div className={styles.overlay}>
-          <h2 className={styles.loadingMessage}>{loadingMessage}</h2>
-        </div>
-      )}
-      <h1>Todo List</h1>
-      <TodoForm
-        addTodo={addTodo}
-        handleSearch={handleSearch}
-        toggleSort={toggleSort}
-        isSorted={isSorted}
-        isProcessing={isProcessing}
-      />
-      <ul className={styles.todoList}>
-        {filteredTodos.map(({ id, title, completed }) => (
-          <TodoItem
-            key={id}
-            id={id}
-            title={title}
-            completed={completed}
-            updateTodo={updateTodo}
-            deleteTodo={deleteTodo}
-            isProcessing={isProcessing}
-          />
-        ))}
-      </ul>
-    </div>
-  );
-};
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/task/:id?" element={<TaskPage />} />
+      <Route path="/404" element={<NotFoundPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
+
