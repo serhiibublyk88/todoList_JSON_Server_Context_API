@@ -1,6 +1,4 @@
-// npx json-server db.json
 
-// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import TaskPage from "./pages/TaskPage";
@@ -18,4 +16,3 @@ const App = () => (
 );
 
 export default App;
-

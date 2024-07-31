@@ -6,13 +6,12 @@ import styles from "../App.module.css";
 
 const TaskPage = () => {
   const { id } = useParams();
-  const { todos, updateTodo, deleteTodo, isProcessing } =
-    useContext(TodoContext);
+  const { todos, updateTodo, deleteTodo, isProcessing } = useContext(TodoContext);
   const [todo, setTodo] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const foundTodo = todos.find((todo) => todo.id === id);
+    const foundTodo = todos.find(todo => todo.id === id);
     if (foundTodo) {
       setTodo(foundTodo);
     } else {
@@ -40,9 +39,7 @@ const TaskPage = () => {
       <h1>Task Details</h1>
       <div className={styles.todoItem}>
         <span className={styles.todoTitle}>{todo.title}</span>
-        <span
-          className={todo.completed ? styles.completed : styles.notCompleted}
-        >
+        <span className={todo.completed ? styles.completed : styles.notCompleted}>
           {todo.completed ? "Completed" : "Not Completed"}
         </span>
         <button onClick={handleCompleteToggle} disabled={isProcessing}>

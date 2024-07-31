@@ -34,7 +34,10 @@ h1 {
 .todoItem {
   display: flex;
   justify-content: space-between;
+<<<<<<< HEAD
+=======
   
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
   border-bottom: 1px solid #444;
   align-items: center;
 }
@@ -42,6 +45,15 @@ h1 {
 .todoTitle {
   flex: 1;
   margin-right: 10px;
+<<<<<<< HEAD
+  color: #ffffff; /* Белый цвет текста по умолчанию */
+  text-decoration: none; /* Убираем подчеркивание ссылки */
+}
+
+.todoTitle:hover {
+  color: #ccc; /* Цвет текста при наведении */
+=======
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
 }
 
 .completed {
@@ -59,7 +71,10 @@ button {
   border-radius: 4px;
   padding: 0 15px; /* Убираем вертикальные отступы */
   margin-left: 10px;
+<<<<<<< HEAD
+=======
   
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
   cursor: pointer;
   transition: background-color 0.3s, transform 0.1s; /* Плавные переходы */
   white-space: nowrap; /* Запрет переноса текста */
@@ -70,7 +85,10 @@ button {
 button:hover {
   background-color: #333; /* Более светлый фон при наведении */
   border: 1px solid #757070;
+<<<<<<< HEAD
+=======
   
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
 }
 
 button:active {
@@ -94,8 +112,11 @@ input[type="text"]::placeholder {
   color: #aaa; /* Цвет плейсхолдера */
 }
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
 .overlay {
   position: fixed;
   top: 0;
@@ -113,3 +134,51 @@ input[type="text"]::placeholder {
   color: white;
   font-size: 24px;
 }
+<<<<<<< HEAD
+
+.backButton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.backButton:hover {
+  background-color: #333;
+}
+
+.updateButton {
+  background-color: #1e1e1e; /* Темный фон кнопки */
+  color: #ffffff; /* Белый текст */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px; /* Увеличенные отступы для кнопки */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  margin-right: 10px;
+}
+
+.updateButton:hover {
+  background-color: #333;
+}
+
+.deleteButton {
+  background-color: #1e1e1e; /* Темный фон кнопки удаления */
+  color: #ffffff; /* Белый текст */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px; /* Увеличенные отступы для кнопки */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.deleteButton:hover {
+  background-color: #333; /* Более светлый фон при наведении */
+}
+=======
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b

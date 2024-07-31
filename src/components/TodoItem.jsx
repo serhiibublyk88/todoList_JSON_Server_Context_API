@@ -1,5 +1,20 @@
 import PropTypes from "prop-types";
 import styles from "../App.module.css";
+<<<<<<< HEAD
+import { Link } from "react-router-dom";
+
+const TodoItem = ({ id, title, completed }) => {
+  return (
+    <li className={styles.todoItem}>
+      <Link
+        to={`/task/${id}`}
+        className={`${styles.todoTitle} ${
+          completed ? styles.completed : styles.notCompleted
+        }`}
+      >
+        {title.length > 30 ? `${title.substring(0, 30)}...` : title}
+      </Link>
+=======
 
 const TodoItem = ({
   id,
@@ -24,17 +39,24 @@ const TodoItem = ({
       <button onClick={() => deleteTodo(id)} disabled={isProcessing}>
         Delete
       </button>
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
     </li>
   );
 };
 
 TodoItem.propTypes = {
+<<<<<<< HEAD
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  completed: PropTypes.bool.isRequired,
+=======
   id: PropTypes.string.isRequired, // Обновлено с number на string
   title: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
   updateTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   isProcessing: PropTypes.bool.isRequired,
+>>>>>>> 854e523aa547ddbfc8722fe9f693aef3417ec13b
 };
 
 export default TodoItem;
